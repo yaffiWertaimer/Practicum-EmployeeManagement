@@ -1,0 +1,22 @@
+.error-container {
+    display: flex; /* שימוש ב-flexbox ליישור התוכן */
+    flex-direction: column; /* יישור הפריטים אנכית */
+    justify-content: center; /* יישור הפריטים אופקית */
+    align-items: center; /* יישור הפריטים אנכית */
+    height: 100vh; /* קביעת גובה הקונטיינר ל-100% מגובה התצוגה */
+    text-align: center;
+    padding: 20px;
+}
+
+.error-container h1 {
+    font-size: 36px;
+    font-family: 'Bambi', sans-serif; /* קביעת גופן ל-Bambi */
+    color: #333; /* קביעת צבע הטקסט */
+    margin-bottom: 20px; /* הוספת רווח בין הכותרת לתמונה */
+}
+
+#error-container img {
+    max-width:10%; /* קביעת רוחב מרבי של התמונה ל-100% */
+    height: 10px; /* קביעת גובה התמונה ל-100 פיקסלים */
+    width: auto; /* התאמת הרוחב לפי יחס המידות */
+}

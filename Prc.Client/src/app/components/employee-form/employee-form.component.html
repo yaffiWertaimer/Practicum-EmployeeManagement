@@ -1,0 +1,123 @@
+<div class="container mt-5">
+    <div class="form-container">
+        <h2>{{ formTitle }}</h2>
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="idNumber">ID:</label>
+                <input type="text" class="form-control" formControlName="idNumber">
+                <div
+                    *ngIf="employeeForm.controls['idNumber']?.invalid && (employeeForm.controls['idNumber']?.dirty || employeeForm.controls['idNumber']?.touched)">
+                    <p *ngIf="employeeForm.controls['idNumber']?.errors?.['required']" class="text-danger">
+                        ID is required
+                      </p>
+                    <p *ngIf="employeeForm.controls['idNumber']?.errors?.['pattern']" class="text-danger"> 
+                        must contain only numeric characters and be 9 characters long</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">firstName:</label>
+                <input type="text" class="form-control" formControlName="firstName">
+                <p *ngIf="employeeForm.controls['firstName'].invalid && (employeeForm.controls['firstName'].dirty || employeeForm.controls['firstName'].touched)"
+                    class="text-danger">firstName is requried</p>
+            </div>
+            <div class="form-group">
+                <label for="lastName">lastName:</label>
+                <input type="text" class="form-control" formControlName="lastName">
+                <p *ngIf="employeeForm.controls['lastName'].invalid && (employeeForm.controls['lastName'].dirty || employeeForm.controls['lastName'].touched)"
+                    class="text-danger">lastName is required</p>
+            </div>
+            <div class="form-group">
+                <label for="gender">gender:</label>
+                <select class="form-control" formControlName="gender">
+                    <option value="" disabled selected hidden>Select gender</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+                <p *ngIf="employeeForm.controls['gender'].invalid && (employeeForm.controls['gender'].dirty || employeeForm.controls['gender'].touched)"
+                    class="text-danger">gender is required</p>
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of birth :</label>
+                <input type="date" class="form-control" formControlName="dateOfBirth">
+                <div *ngIf="employeeForm.controls['dateOfBirth'].invalid && (employeeForm.controls['dateOfBirth'].dirty || employeeForm.controls['dateOfBirth'].touched)"
+                    class="text-danger">
+                    <p *ngIf="employeeForm.controls['dateOfBirth']?.errors?.['required']">Date of birth is required</p>
+                    <p *ngIf="employeeForm.controls['dateOfBirth']?.errors?.['invalidDate']">Date of birth must be before
+                        the current date
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="startWorkingDay">start working date:</label>
+                <input type="date" class="form-control" formControlName="startWorkingDay">
+                <div *ngIf="employeeForm.controls['startWorkingDay']?.invalid && (employeeForm.controls['startWorkingDay']?.dirty || employeeForm.controls['startWorkingDay']?.touched)"
+                    class="text-danger">
+                    <p *ngIf="employeeForm.controls['startWorkingDay']?.errors?.['required']">
+                        start working date is required
+                    </p>
+                    <p *ngIf="employeeForm.controls['startWorkingDay']?.errors?.['invalidDate']">   
+                        start working date must be before the current date
+                        </p>
+                </div>
+            </div>
+
+            <div class="card mb-3 card-body">
+                <h5>{{ isAddMode() ? 'Roles' : 'Role Descriptions' }}</h5>
+                <div formArrayName="roles">
+                  <div *ngFor="let role of rolesFormArray.controls; let i = index" class="role-group" [formGroupName]="i">
+                    
+                 
+                    <div class="mb-3" *ngIf="isAddMode(); else editModeTemplate">
+                      <label>Role title</label>
+                      <select formControlName="roleId" class="form-select" (change)="changeRole()">
+                        <option *ngFor="let role of roleList"   [disabled]="isRoleDisabled(role.id)"  [value]="role.id" >{{ role.description }}</option>
+                      </select>
+                    </div>
+                    <ng-template #editModeTemplate>
+
+                      <div class="mb-3">
+                        <label>Role title</label>
+                        <select formControlName="roleId" class="form-select">
+                          <option *ngFor="let roleOption of roleList" [value]="roleOption.id" 
+                                  [selected]="isEditMode() && roleOption.id === role.value.roleId">
+                            {{ roleOption.description }}
+                          </option>
+                        </select>
+                      </div>
+
+                    </ng-template>
+              
+                    <div class="mb-3">
+                      <label class="form-check-label">Administrative Role
+                        <input type="checkbox" formControlName="isAdmin" class="form-check-input">
+                      </label>
+                    </div>
+              
+                    <div class="form-group">
+                      <label for="entryDate" class="form-label">Start Date</label>
+                      <input type="date" formControlName="entryDate" class="form-control">
+                    </div>
+              
+                    <div class="mb-3">
+                      <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-danger" (click)="removeRole(i)">
+                          <i class="fas fa-trash"></i> Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+         
+            <button type="button" (click)="addRole()" class="btn btn-primary btn-add-role">
+                <mat-icon>add</mat-icon>
+
+            </button>
+
+            <button type="button" (click)="onSubmit()" id="save" [disabled]="employeeForm.invalid">Save</button>
+
+
+        </form>
+    </div>

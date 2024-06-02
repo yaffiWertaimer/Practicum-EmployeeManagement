@@ -1,0 +1,208 @@
+
+
+.btn-warning {
+  color: #fff;
+  background-color: #1e4ab8;
+  border-color: #1e4ab8;
+  border-radius: 5px;
+  /* קיפולים מעט מעגליים */
+  padding: 10px 20px;
+  /* הגדלת הריבוע */
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 5px;
+  /* קיפולים מעט מעגליים */
+  padding: 10px 20px;
+  /* הגדלת הריבוע */
+}
+.mr-2 {
+  color: #fff;
+  background-color: #0056b3;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 30%;
+  margin-top: -50px; /* מוריד את הכפתור למיקום גבוה יותר */
+  transform: translateX(-50%);
+}
+.table-container {
+  width: 100%;
+  /* רוחב מלא */
+  max-width: 100%;
+  /* רוחב מקסימלי כדי לא להתעקש על עמודות ארוכות מדי */
+  height: 100%;
+  /* גובה מלא */
+  overflow: auto;
+  /* גלילה במקרה שהתוכן יעבור את המסגרת */
+}
+
+.table-container table {
+  width: 100%;
+  /* רוחב מלא של הטבלה בתוך הקונטיינר */
+}
+
+.table-container th,
+.table-container td {
+  white-space: nowrap;
+  /* איוורור למניעת שורות נוספות */
+}
+
+.table-container th {
+  text-align: center;
+  /* מרכוז תוכן בכותרות העמודות */
+}
+
+.form-control {
+  /* הוספת סגנונות עיצוב כאן */
+  width: 80%;
+  /* רוחב מלא */
+  padding: 0.375rem 0.75rem;
+  /* שוליים עליונים ותחתונים */
+  font-size: 1rem;
+  /* גודל גופן */
+  line-height: 1.5;
+  /* גובה שורה */
+  color: #495057;
+  /* צבע טקסט */
+  background-color: #fff;
+  /* צבע רקע */
+  background-clip: padding-box;
+  /* המרה מרקע */
+  border: 1px solid #ced4da;
+  /* גבול */
+  border-radius: 0.25rem;
+  /* רדיוס פינות */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* אנימציה */
+}
+
+.table {
+  /* הוספת סגנונות עיצוב כאן */
+  width: 100%;
+  /* רוחב מלא */
+  margin-bottom: 1rem;
+  /* מרווח למטה */
+  color: #212529;
+  /* צבע טקסט */
+  border-collapse: collapse;
+  /* מיזוג גבולות שולי הטבלה */
+}
+
+.table th,
+.table td {
+  /* הוספת סגנונות עיצוב כאן */
+  padding: 0.75rem;
+  /* שוליים */
+  vertical-align: top;
+  /* יישור אנכי */
+  border-top: 1px solid #dee2e6;
+  /* גבול עליון */
+}
+
+.table th {
+  /* הוספת סגנונות עיצוב כאן */
+  vertical-align: bottom;
+  /* יישור אנכי למטה */
+  border-bottom: 2px solid #dee2e6;
+  /* גבול תחתון */
+}
+
+.table thead th {
+  /* הוספת סגנונות עיצוב כאן */
+  vertical-align: bottom;
+  /* יישור אנכי למטה */
+  border-bottom: 2px solid #dee2e6;
+  /* גבול תחתון */
+}
+
+
+.table-sm th,
+.table-sm td {
+  /* הוספת סגנונות עיצוב כאן */
+  padding: 0.8rem;
+  /* שוליים */
+}
+
+// .table-bordered {
+//   /* הוספת סגנונות עיצוב כאן */
+//   border: 1px solid #dee2e6; /* גבול */
+// }
+
+// .table-bordered th,
+// .table-bordered td {
+//   /* הוספת סגנונות עיצוב כאן */
+//   border: 1px solid #dee2e6; /* גבול */
+// }
+
+.table-bordered thead th,
+.table-bordered thead td {
+  /* הוספת סגנונות עיצוב כאן */
+  border-bottom-width: 2px;
+  /* גבול תחתון */
+}
+
+///////////
+
+.table {
+  /* כדי להבטיח שהטבלה תהיה במרכז ותוכן תאי הטבלה יהיה ממורכז, נפסיק את כל הטבלה ונעטוף אותה ב-div */
+
+  width: 70%;
+  /* רוחב מלא */
+  border-collapse: collapse;
+  /* מיזוג גבולות */
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  /* שוליים */
+  text-align: center;
+  /* יישור למרכז */
+}
+
+.table-container {
+  width: 90%;
+  /* רוחב כולל */
+  margin: 0 auto;
+  /* מיקום אופקי מרכזי */
+  padding: 20px;
+  /* שוליים פנימיים */
+  display: flex;
+  justify-content: center;
+  /* מרכז אופקי */
+  align-items: center;
+  /* מרכז אנכי */
+}
+
+.form-control {
+  width: 20%;
+  /* רוחב ה-input */
+}
+
+
+
+.table th,
+.table td {
+  padding: 10px;
+  /* שוליים */
+  text-align: center;
+  /* יישור למרכז */
+}
+
+// .table th {
+//   background-color: #f2f2f2; /* רקע לכותרות */
+// }
+
+// .table th,
+// .table td {
+//   border: 1px solid #ddd; /* גבולות */
+// }
+#title {
+  text-align: center; /* מרכז את הטקסט אופקית */
+  margin-top: 50px; /* מרווח מעל הכותרת */
+  margin-bottom: 50px; /* מרווח מתחת לכותרת */
+}

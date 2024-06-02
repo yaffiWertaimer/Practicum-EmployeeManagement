@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h1 id="title"> employee list </h1>
+ 
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text"></span>
+    </div>
+    <input type="text" class="form-control" placeholder="search...." [(ngModel)]="searchQuery">
+  </div>
+  
+  <button class="btn btn-primary mb-3" class="mr-2" (click)="openAddDialog()"> <i class="pi pi-plus"> NEW</i></button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>idNumber</th>
+        <th>startWorkingDay</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of filterEmployees()">
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.idNumber }}</td>
+        <td>{{ employee.startWorkingDay | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="openEditDialog(employee)">
+
+            <i class="pi pi-pencil"></i>
+            edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteEmployee(employee)">
+
+            <i class="pi pi-trash"></i> <!-- הוספת האייקון של הפח -->
+            delete
+          </button>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
